@@ -391,3 +391,62 @@ Input:
 
 Output:
 4 1 4 1 
+
+Задача 2.
+
+**Пустой массив (`n = 0`)**
+
+Input:
+0
+
+Output:
+0
+
+**Один элемент — делится на 3**
+
+Input:
+1
+3
+
+Output:
+0
+
+**Один элемент — ноль**
+
+Input:
+1
+0
+
+Output:
+0
+
+Задача 3.
+
+Input:
+121
+
+Output:
+"YES"
+
+
+Input:
+123
+
+Output:
+"NO"
+
+
+Input:
+0
+
+Output:
+"YES"
+
+Задача 4.
+
+Input: 
+5 
+12 3 12 3 3
+
+Output:
+3 3 3
