@@ -233,3 +233,33 @@
 - перебираются все позиции массива, и для каждой `i`, где `good[i] == true`, значение `a[i]` выводится с пробелом после него;
  
 - после вывода всех подходящих элементов добавляется перевод строки.
+  
+  ### 4. Программа
+
+ Задача 1.
+ 
+```java
+import java.io.PrintStream;
+import java.util.Scanner;
+import java.io.IOException;
+
+public class Main {
+    public static Scanner in = new Scanner(System.in);
+    public static PrintStream out = System.out;
+
+    public static void main(String[] args) {
+        int a0 = in.nextInt();
+        int n = in.nextInt();
+        int x = a0 + 3;
+        out.print(x + " ");
+        for (int i = 1; i <= n; i++) {
+            if (i % 2 == 1) {
+                x /= 4;
+                out.print(x + " ");
+            } else {
+                x += 3;
+                out.print(x + " ");
+            }
+        }
+    }
+}
