@@ -242,11 +242,9 @@
 import java.io.PrintStream;
 import java.util.Scanner;
 import java.io.IOException;
-
 public class Main {
     public static Scanner in = new Scanner(System.in);
     public static PrintStream out = System.out;
-
     public static void main(String[] args) {
         int a0 = in.nextInt();
         int n = in.nextInt();
@@ -263,3 +261,124 @@ public class Main {
         }
     }
 }
+```
+Задача 2.
+
+```java
+import java.io.PrintStream;
+import java.util.Scanner;
+public class Main {
+    public static Scanner in = new Scanner(System.in);
+    public static PrintStream out = System.out;
+    public static void main(String[] args) {
+        int n = in.nextInt();
+        int[] arr = new int[n];
+        for (int i = 0; i < n; i++) {
+            arr[i] = in.nextInt();
+        }int positive = 0;
+        for (int i = 0; i < n; i++) {
+            for (int j = i; j < n; j++) {
+                boolean three = false;
+                for (int k = i; k <= j; k++) {
+                    if (arr[k] % 3 == 0) {
+                        three = true;
+                        break;
+                    }
+                }
+
+                if (!three) {
+                    int sign = 1;
+                    for (int k = i; k <= j; k++) {
+                        if (arr[k] == 0) {
+                            sign = 0;
+                            break;
+                        }
+                        if (arr[k] < 0) {
+                            sign *= -1;
+                        }
+                    }
+                    if (sign == 1) {
+                        positive++;
+                    }
+                }
+            }
+        }
+        out.println(positive);
+    }
+}
+```
+
+Задача 3.
+
+```java
+import java.util.Scanner;
+import java.io.PrintStream;
+public class Main {
+    public static Scanner in = new Scanner(System.in);
+    public static PrintStream out = System.out;
+    public static void main(String[] args) {
+        long n = in.nextLong();
+        if (n == 0) {
+            out.println("YES");
+            return;
+        } long original = n;
+        long reversed = 0;
+        while (n > 0) {
+            reversed = reversed * 10 + n % 10;
+            n /= 10;
+        } if (original == reversed) {
+            out.println("YES");
+        } else {
+            out.println("NO");
+        }
+    }
+}
+```
+
+Задача 4.
+
+```java
+import java.util.Scanner;
+import java.io.PrintStream;
+public class Main {
+    public static Scanner in = new Scanner(System.in);
+    public static PrintStream out = System.out;
+    public static void main(String[] args) {
+        int n = in.nextInt();
+        int[] a = new int[n];
+        for (int i = 0; i < n; i++) {
+            a[i] = in.nextInt();
+        } boolean[] good = new boolean[n];
+        boolean found = false;
+        for (int i = 0; i < n; i++) {
+            int count = 0;
+            for (int j = 0; j < n; j++) {
+                if (a[j] == a[i]) {
+                    count++;
+                }
+            } int sum = 0;
+            int num = Math.abs(a[i]); 
+            if (num == 0) {
+                sum = 0;
+            } else {
+                while (num > 0) {
+                    sum += num % 10;
+                    num /= 10;
+                }
+            } if (count == sum) {
+                good[i] = true;
+                found = true;
+            }
+        } if (!found) {
+            out.println("NO");
+        } else {
+            for (int i = 0; i < n; i++) {
+                if (good[i]) {
+                    out.print(a[i] + " ");
+                }
+            }
+            out.println();
+        }
+    }
+}
+```
